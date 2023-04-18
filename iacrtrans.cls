@@ -28,6 +28,7 @@
 % [journal=tosc]
 % [journal=tches]
 % [draft]
+% [eprint]        design for IACR eprint
 %% Package options
 % [spthm]         Emulate llncs sptheorem and remove automatic \qed in proof
 % [floatrow]      Load floatrow package with correct captions
@@ -114,11 +115,14 @@
 \@anonymousfalse
 \newif\if@preprint
 \@preprinttrue
+\newif\if@eprint
+\@eprintfalse
 \define@key{IACR}{final}[]{\PassOptionsToClass{\CurrentOption}{article}\@preprintfalse}
 \define@key{IACR}{preprint}[]{\@preprinttrue}      % Default
 \define@key{IACR}{submission}[]{\@submissiontrue\@anonymoustrue}
 \define@key{IACR}{draft}[]{\@preprinttrue\PassOptionsToClass{\CurrentOption}{article}}
 \define@key{IACR}{notanonymous}[]{\@anonymousfalse}
+\define@key{IACR}{eprint}[]{\@eprinttrue}
 \newif\if@spthm
 \@spthmfalse
 \define@key{IACR}{spthm}[]{\@spthmtrue}
@@ -159,7 +163,11 @@
 
 
 % Geometry
-\RequirePackage[a4paper,hscale=0.65,vscale=0.75,marginratio=1:1,marginparwidth=2.7cm]{geometry}
+\if@eprint
+  \RequirePackage[a4paper,hscale=0.75,vscale=0.8,marginratio=1:1,marginparwidth=2.5cm]{geometry}  % modify margin for eprint
+  \else
+  \RequirePackage[a4paper,hscale=0.65,vscale=0.75,marginratio=1:1,marginparwidth=2.7cm]{geometry}
+\fi
 \RequirePackage{afterpage}
 % Title fonts: bf+sf
 \RequirePackage{sectsty}
