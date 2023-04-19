@@ -28,7 +28,7 @@
 % [journal=tosc]
 % [journal=tches]
 % [draft]
-% [eprint]        design for IACR eprint
+% [eprint]        Add for IACR eprint
 %% Package options
 % [spthm]         Emulate llncs sptheorem and remove automatic \qed in proof
 % [floatrow]      Load floatrow package with correct captions
@@ -164,9 +164,9 @@
 
 % Geometry
 \if@eprint
-  \RequirePackage[a4paper,hscale=0.75,vscale=0.8,marginratio=1:1,marginparwidth=2.5cm]{geometry}  % modify margin for eprint
-  \else
-  \RequirePackage[a4paper,hscale=0.65,vscale=0.75,marginratio=1:1,marginparwidth=2.7cm]{geometry}
+\RequirePackage[a4paper,hscale=0.75,vscale=0.8,marginratio=1:1,marginparwidth=2.4cm]{geometry}
+\else
+\RequirePackage[a4paper,hscale=0.65,vscale=0.75,marginratio=1:1,marginparwidth=2.7cm]{geometry}
 \fi
 \RequirePackage{afterpage}
 % Title fonts: bf+sf
